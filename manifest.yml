@@ -1,0 +1,16 @@
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  domain: mybluemix.net
+  name: parseserver
+  host: parseserver-${random-word}
+  disk_quota: 1024M
+  command: node index.js
+  env:
+    DATABASE_URI: mongodb://root:password@localhost:27017/parse_server_db
+    CLOUD_CODE_MAIN: /cloud/main.js
+    APP_ID: ${random-word}
+    MASTER_KEY: ${random-word}
+    PARSE_MOUNT: /parse
+    
